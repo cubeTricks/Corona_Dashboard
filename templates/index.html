@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Georgia, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+   #footer {
+            position: fixed;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            /* Height of the footer*/ 
+            height: 40px;
+            background: grey;
+			align:left;
+        }
+  </style>
+</head>
+<body>
+<br></br>
+<h2>Corona Country Statistics</h2>
+<br></br>
+<form method="POST">
+<label for="countries"> Select the Country Name : </label>
+<select id="country" name="country">
+
+{% for country in countries %}
+	<option value={{country.country_name}}>{{country.country_name}}</option>
+{% endfor %}
+</select>
+<br></br>
+<br></br>
+<button class="submit"> Get Data </button>
+</form>
+<br></br>
+<br></br>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Country Name</th>
+    <th>New Cases</th>
+	<th>Cumulative  Cases</th>
+	<th>New Deaths</th>
+	<th>Cumulative  Deaths</th>
+	 </tr>
+	
+	{% for html_data_row in html_data %}
+	<tr>
+	<td>{{html_data_row.Date}}</td>
+	<td>{{html_data_row.Country_Name}}</td>
+	<td>{{html_data_row.New_Cases}}</td>
+	<td>{{html_data_row.Cummulative_Cases}}</td>
+	<td>{{html_data_row.New_Deaths}}</td>
+	<td>{{html_data_row.Cummulative_Deaths}}</td>
+	
+	</tr>
+	
+	{% endfor %}
+</table>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+
+<div id="footer">Designed with help from Google and Stackoverflow :) :)  Planet Green.
+                  </div>
+</body>
+</html>
