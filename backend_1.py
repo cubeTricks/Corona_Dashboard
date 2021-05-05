@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from datetime import timedelta
 import os
-chdir(os.path)
+
 file_path=r'\WHO-COVID-19-global-data_May5_db.csv'
 
 
