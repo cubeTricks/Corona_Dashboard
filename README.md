@@ -1,3 +1,2 @@
-# Python_Projects
+# Corona Dashboard Project
 
-# Simple python projects with basic libraries like pandas and flask.
