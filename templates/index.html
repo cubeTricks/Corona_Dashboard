@@ -2,12 +2,28 @@
 <html>
 <head>
   <style>
-  * { 
-    margin: 0; 
-    padding: 0; 
-  }
+  
+  	h2 {
+  color:#185163;
+  text-align:center;
+  font-family: Monaco, Monospace	;
+  font-size:40px;
+  height:50px;
+}
+
+span {
+    color:#1b0b47;
+  text-align:center;
+  font-family: Monaco, Monospace;
+  font-size:20px;
+  height:50px;
+}
+
+
+
   body { 
     font: 14px/1.4 Georgia, Serif; 
+	background:url({{url_for('static',filename='img/dg2.jpg')}}) center/cover no-repeat  fixed;
   }
   
   /* 
@@ -16,21 +32,30 @@
   table { 
     width: 100%; 
     border-collapse: collapse; 
+	 background: rgba(100, 100, 100, 0.5);
   }
   /* Zebra striping */
   tr:nth-of-type(odd) { 
-    background: #eee; 
+    background-color: #07383d;
   }
-  th { 
-    background: #333; 
-    color: white; 
-    font-weight: bold; 
+
+   th { 
+    padding: 6px; 
+	font-weight: bold; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+	color:white;
+	background-color:#07383d;
   }
-  td, th { 
+    td { 
     padding: 6px; 
     border: 1px solid #9B9B9B; 
     text-align: left; 
+	color:white;
+	
   }
+  
+
   @media 
   only screen and (max-width: 760px),
   (min-device-width: 768px) and (max-device-width: 1024px)  {
@@ -69,14 +94,23 @@
             background: grey;
 			align:left;
         }
+		
+
+  
+
+  
   </style>
 </head>
 <body>
 <br></br>
-<h2>Corona Country Statistics</h2>
+<h2>Coronavirus Updates </h2>
 <br></br>
+<div>
 <form method="POST">
-<label for="countries"> Select the Country Name : </label>
+<br></br>
+<br></br>
+<span>Select the Country :</span>
+<!--<label for="countries"> Select the Country Name : </label> -->
 <select id="country" name="country">
 
 {% for country in countries %}
@@ -84,11 +118,11 @@
 {% endfor %}
 </select>
 <br></br>
-<br></br>
 <button class="submit"> Get Data </button>
 </form>
 <br></br>
 <br></br>
+<p style="text-align:left;">
 <table>
   <tr>
     <th>Date</th>
@@ -103,7 +137,7 @@
 	<tr>
 	<td>{{html_data_row.Date}}</td>
 	<td>{{html_data_row.Country_Name}}</td>
-	<td>{{html_data_row.New_Cases}}</td>
+	<td>{{html_data_row.New_Cases}}</td>		
 	<td>{{html_data_row.Cummulative_Cases}}</td>
 	<td>{{html_data_row.New_Deaths}}</td>
 	<td>{{html_data_row.Cummulative_Deaths}}</td>
@@ -112,9 +146,24 @@
 	
 	{% endfor %}
 </table>
+</p>
 <br></br>
 <br></br>
-<br></br>
+
+<h2>Vaccination Data</h2>
+
+  <p style="text-align:left;">
+  <table>
+  {% for key, value in html_data_vaccine.items() %}
+		<tr>	
+		 <td>{{key}}:</td>
+		 <td>{{value}}</td>
+		
+		</tr>
+		{% endfor %}
+  </table>
+	</p>
+
 <br></br>
 <br></br>
 <br></br>
@@ -122,8 +171,8 @@
 <br></br>
 <br></br>
 
-
-<div id="footer">Designed with help from Google and Stackoverflow :) :)  Planet Green.
-                  </div>
+</div>
+<footer style='color:#1b0b47'>Designed with help from Google and Stackoverflow :) :)  Planet Green.
+                  </footer>
 </body>
 </html>
