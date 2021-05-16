@@ -1,6 +1,6 @@
 # Corona Dashboard Project
 
-# Python flask web application to displaycorona statistics of 3 consective days 
+# Python flask web application to display corona statistics of 3 consecutive days 
 # Reading the data from csv file and filtering data for the selected country.
 # To display Vaccination data also for the selected country.
 
