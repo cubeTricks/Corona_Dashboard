@@ -23,7 +23,7 @@ span {
 
   body { 
     font: 14px/1.4 Georgia, Serif; 
-	background:url({{url_for('static',filename='img/bg2.jpg')}}) center/cover no-repeat  fixed;
+	background:url({{url_for('static',filename='img/dg2.jpg')}}) center/cover no-repeat  fixed;
   }
   
   /* 
@@ -118,10 +118,14 @@ span {
 {% endfor %}
 </select>
 <br></br>
+<span>Select required date (Optional)</span>
+<input type="date" name="process_date" value="{{current_date_for_html.c_date}}" min='2020-02-01' max="{{current_date_for_html.c_date}}"> 
+<br></br>
 <button class="submit"> Get Data </button>
 </form>
 <br></br>
 <br></br>
+<span>Corona Statics of  Country {{html_data_vaccine['Country Name ']}}</span>
 <p style="text-align:left;">
 <table>
   <tr>
